@@ -4,13 +4,18 @@ FROM bitnami/spark
 # Set the working directory in the container
 WORKDIR /generic-cloud-etl
 
-# Copy the current directory contents into the container at /app
-ADD ./main/ /generic-cloud-etl/main/
-ADD ./configs/ generic-cloud-etl/configs/
-ADD ./data/ generic-cloud-etl/data/
-ADD ./scripts/ generic-cloud-etl/scripts/
+# Copy the current directory contents into the container at /generic-cloud-etl
+COPY ./main/ /generic-cloud-etl/main/
+COPY ./configs/ /generic-cloud-etl/configs/
+COPY ./data/ /generic-cloud-etl/data/
+COPY ./scripts/ /generic-cloud-etl/scripts/
+COPY requirements.txt /generic-cloud-etl/
+
 # Install any needed packages specified in requirements.txt
-RUN pip install --no-cache-dir -r requirements.txt
+# Ensure pip is available. Bitnami Spark images might not have pip installed by default.
+# Install any needed packages specified in requirements.txt
+# Ensure pip is available. Bitnami Spark images might not have pip installed by default.
+RUN pip install pyyaml pandas
 
 # Expose the Spark UI port
 EXPOSE 4040
