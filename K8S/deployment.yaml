@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pyspark-cloud-etl-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pyspark-cloud-etl
+  template:
+    metadata:
+      labels:
+        app: pyspark-cloud-etl
+    spec:
+      containers:
+      - name: pyspark-cloud-etl
+        image: alilord/pyspark-cloud-etl:v_5
+        ports:
+        - containerPort: 80
