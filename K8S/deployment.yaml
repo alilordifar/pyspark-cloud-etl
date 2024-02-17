@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: pyspark-cloud-etl
-        image: alilord/pyspark-cloud-etl:v_11
+        image: alilord/pyspark-cloud-etl:v_14
         ports:
         - containerPort: 80
