@@ -5,7 +5,7 @@ FROM bitnami/spark
 WORKDIR /generic-cloud-etl
 
 # Copy the current directory contents into the container at /app
-COPY . /generic-cloud-etl
+ADD ./main/ /generic-cloud-etl/main/
 ADD ./configs/ generic-cloud-etl/configs/
 ADD ./data/ generic-cloud-etl/data/
 ADD ./scripts/ generic-cloud-etl/scripts/
