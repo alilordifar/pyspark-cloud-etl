@@ -50,7 +50,7 @@ def start_job():
     df.printSchema()
     print(df.count())
 
-    df.write.csv("s3a://testgenericetl/", mode="overwrite")
+    df.write.csv("s3a://testgenericetl/test/", mode="overwrite")
 
 
 if __name__ == '__main__':
