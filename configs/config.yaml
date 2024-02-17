@@ -1,5 +1,5 @@
 source:
-  source_path: '/generoc-cloud-etl/data/Airbnb_Open_Data.csv'
+  source_path: '/generic-cloud-etl/data/Airbnb_Open_Data.csv'
   source_format: csv
 
 target:
